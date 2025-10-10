@@ -85,8 +85,11 @@
 
 /* The timeout value in microsecond used to wait for core to be booted */
 #define CM55_BOOT_WAIT_TIME_USEC (10U)
+
+/* App boot address for CM55 project */
 #define CM55_APP_BOOT_ADDR          (CYMEM_CM33_0_m55_nvm_START + \
                                         CYBSP_MCUBOOT_HEADER_SIZE)
+
 /*******************************************************************************
  * Data type definitions
  ********************************************************************************/
@@ -166,7 +169,7 @@ int main(void) {
   }
 
   /* Enable CM55. */
-  /* CY_CM55_APP_BOOT_ADDR must be updated if CM55 memory layout is changed.*/
+    /* CM55_APP_BOOT_ADDR must be updated if CM55 memory layout is changed.*/
     Cy_SysEnableCM55(MXCM55, CM55_APP_BOOT_ADDR, CM55_BOOT_WAIT_TIME_USEC);
 
   for (;;)
